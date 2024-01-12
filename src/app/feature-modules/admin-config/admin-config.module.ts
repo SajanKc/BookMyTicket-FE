@@ -6,18 +6,15 @@ import { HeaderComponent } from './dashboard/components/header/header.component'
 import { SidenavComponent } from './dashboard/components/sidenav/sidenav.component';
 import { MainComponent } from './dashboard/components/main/main.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
-
+import { MaterialModule } from 'src/app/material/material.module';
 
 @NgModule({
   declarations: [
     HeaderComponent,
     SidenavComponent,
     MainComponent,
-    DashboardComponent
+    DashboardComponent,
   ],
-  imports: [
-    CommonModule,
-    AdminConfigRoutingModule
-  ]
+  imports: [CommonModule, AdminConfigRoutingModule, MaterialModule],
 })
-export class AdminConfigModule { }
+export class AdminConfigModule {}
