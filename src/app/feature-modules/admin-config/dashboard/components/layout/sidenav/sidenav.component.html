@@ -1,12 +1,15 @@
 <mat-nav-list>
   <a
     id="matListItem"
+    class="ps-4"
     mat-list-item
     *ngFor="let m of sidebarMenus; let i = index"
     [routerLink]="m?.url || null"
     [routerLinkActive]="m?.url ? 'list-item-active' : ''"
   >
     <mat-icon>{{ m?.icon }}</mat-icon>
-    {{ m?.name }}
+    <span>
+      {{ m?.name }}
+    </span>
   </a>
 </mat-nav-list>

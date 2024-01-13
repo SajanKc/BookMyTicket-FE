@@ -1,0 +1,66 @@
+<div class="d-flex justify-content-between">
+  <button mat-raised-button color="accent" (click)="addNewCity()">
+    Add New
+  </button>
+  <p>
+    <mat-form-field appearance="outline">
+      <input
+        matInput
+        #searchInput
+        placeholder="Search"
+        (input)="applyFilter(searchInput.value)"
+      />
+    </mat-form-field>
+  </p>
+</div>
+
+<mat-table [dataSource]="dataSource" matSort>
+  <ng-container matColumnDef="id">
+    <mat-header-cell *matHeaderCellDef mat-sort-header> No. </mat-header-cell>
+    <mat-cell *matCellDef="let row"> {{ row.id }} </mat-cell>
+  </ng-container>
+
+  <ng-container matColumnDef="name">
+    <mat-header-cell *matHeaderCellDef mat-sort-header> Name </mat-header-cell>
+    <mat-cell *matCellDef="let row"> {{ row.name }} </mat-cell>
+  </ng-container>
+
+  <ng-container matColumnDef="state">
+    <mat-header-cell *matHeaderCellDef mat-sort-header> State </mat-header-cell>
+    <mat-cell *matCellDef="let row"> {{ row.state }} </mat-cell>
+  </ng-container>
+
+  <ng-container matColumnDef="zipCode">
+    <mat-header-cell *matHeaderCellDef mat-sort-header>
+      ZipCode
+    </mat-header-cell>
+    <mat-cell *matCellDef="let row"> {{ row.zipCode }} </mat-cell>
+  </ng-container>
+
+  <ng-container>
+    <mat-header-cell *matHeaderCellDef mat-sort-header>
+      Actions
+    </mat-header-cell>
+    <mat-cell *matCellDef="let row"> {{ row.action }} </mat-cell>
+  </ng-container>
+
+  <ng-container matColumnDef="actions">
+    <mat-header-cell *matHeaderCellDef>Actions</mat-header-cell>
+    <mat-cell *matCellDef="let row">
+      <button mat-icon-button (click)="editRow(row)">
+        <mat-icon>edit</mat-icon>
+      </button>
+      <button mat-icon-button (click)="deleteRow(row)">
+        <mat-icon>delete</mat-icon>
+      </button>
+    </mat-cell>
+  </ng-container>
+
+  <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+  <mat-row *matRowDef="let row; columns: displayedColumns"></mat-row>
+</mat-table>
+
+<mat-paginator
+  [pageSizeOptions]="[5, 10, 25, 100]"
+  showFirstLastButtons
+></mat-paginator>

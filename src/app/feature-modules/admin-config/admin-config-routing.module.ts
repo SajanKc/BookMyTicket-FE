@@ -1,7 +1,7 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { DashboardComponent } from './dashboard/dashboard.component';
-import { MainComponent } from './dashboard/components/main/main.component';
+import { CityComponent } from './dashboard/components/pages/city/city.component';
 
 const routes: Routes = [
   { path: '', redirectTo: 'dashboard', pathMatch: 'full' },
@@ -12,7 +12,7 @@ const routes: Routes = [
     children: [
       {
         path: 'city',
-        component: MainComponent,
+        component: CityComponent,
       },
       // {
       //   path: 'cinema',
